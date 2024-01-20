@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10589268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 10589269}
+  m_Layer: 6
+  m_Name: Dogrula
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &10589269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10589268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 446499959}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &38414152
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,8 +259,9 @@ GameObject:
   - component: {fileID: 446499959}
   - component: {fileID: 446499962}
   - component: {fileID: 446499961}
-  - component: {fileID: 446499960}
   - component: {fileID: 446499963}
+  - component: {fileID: 446499960}
+  - component: {fileID: 446499964}
   m_Layer: 0
   m_Name: Gove
   m_TagString: Untagged
@@ -245,11 +277,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446499958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1089714, y: 1, z: 4.68}
+  m_LocalPosition: {x: 2.1089714, y: 1.29, z: 4.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 649186013}
+  - {fileID: 10589269}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -326,11 +359,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 446499958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0784cbdb29d458243b5a2ad32f6d58a5, type: 3}
+  m_Script: {fileID: 11500000, guid: f45e4af0397f4a74fade24ba4e1ca393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hassasiyet: 100
-  govde: {fileID: 649186013}
+  yerdemi: 0
+  maske:
+    serializedVersion: 2
+    m_Bits: 64
+  yer: {fileID: 10589269}
+  cekimhizi: 0.3
+  hiz: 5
+  ziplamaYukseklik: 4
+  yercekimi: -9.8
+--- !u!143 &446499964
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446499958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &649186012
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 649186013}
   - component: {fileID: 649186015}
+  - component: {fileID: 649186016}
   - component: {fileID: 649186014}
   m_Layer: 0
   m_Name: Camera
@@ -415,6 +474,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &649186016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649186012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0784cbdb29d458243b5a2ad32f6d58a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hassasiyet: 100
+  govde: {fileID: 446499959}
 --- !u!1 &814740393
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +499,7 @@ GameObject:
   - component: {fileID: 814740396}
   - component: {fileID: 814740395}
   - component: {fileID: 814740394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
