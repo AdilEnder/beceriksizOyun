@@ -9,21 +9,30 @@ public class kapý : MonoBehaviour
     public GameObject door;
     public GameObject TriggerDoor;
     public float distance;
-    playerRay ray;
+    public Animation anim;
     public GameObject E;
 
     void Start()
     {
-        
+        anim = GetComponent<Animation>();
     }
 
     
     void Update()
     {
-        ray = FindObjectOfType<playerRay>();
 
-        distance = ray.totarget;
+        distance = playerRay.thedistance;
+        
 
+
+        
+
+        
+
+    }
+
+    void OnMouseOver()
+    {
 
         if (distance < 2)
         {
@@ -32,23 +41,30 @@ public class kapý : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
 
-                TriggerDoor.gameObject.GetComponent<MeshCollider>().enabled = false;
-                door.gameObject.GetComponent<Animation>().Play("AnýmasyonAdý");
-                
-            }     
-            else
-            {
-                
-                    E.SetActive(false);
+                TriggerDoor.GetComponent<BoxCollider>().enabled = false;
+                anim.gameObject.GetComponent<Animation>().Play("sýkcemAnaný");
+
 
             }
 
-            
+        }
+        else
+        {
 
+            E.SetActive(false);
 
         }
 
+    }
+    void OnMouseExit()
+    {
         
+        if (distance < 2)
+        {
+
+            E.SetActive(false);
+
+        }
 
     }
 }
