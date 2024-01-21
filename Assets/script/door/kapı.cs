@@ -38,7 +38,7 @@ public class kapý : MonoBehaviour
             }     
             else
             {
-
+                
                     E.SetActive(false);
 
             }
