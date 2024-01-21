@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class playerRay : MonoBehaviour
 {
-    public float totarget;
+    
     public static float thedistance;
-
+    public float totarget;
+    RaycastHit hit;
     void Update()
     {
-        RaycastHit hit;
+        
 
         if (Physics.Raycast(transform.position, transform.TransformDirection (Vector3.forward), out hit))
         {
-
+          
             totarget = hit.distance;
             thedistance = totarget;
 
