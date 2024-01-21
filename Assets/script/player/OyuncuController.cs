@@ -17,6 +17,8 @@ public class OyuncuController : MonoBehaviour
     public float ziplamaYukseklik;
     public float yercekimi;
 
+    public float stamina = 100f;
+
     
     void Start()
     {
@@ -44,6 +46,8 @@ public class OyuncuController : MonoBehaviour
 
         #endregion
 
+
+        #region Yer«ekimi
         yerdemi = Physics.CheckSphere(yer.position, cekimhizi, maske);
         if(yerdemi && velo.y<0)
         {
@@ -51,9 +55,25 @@ public class OyuncuController : MonoBehaviour
         }
         velo.y += yercekimi * Time.deltaTime;
         control.Move(velo * Time.deltaTime);
+        #endregion
+
+
+        #region H˝zl˝Ko˛ma
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            hiz = 8;
+            stamina = Time.deltaTime - 0.01f;
+            print("stamina" + stamina);
+        }
+        else
+        {
+            hiz = 5;
+        }
+        #endregion
+
     }
 
 
-    
+
 
 }
