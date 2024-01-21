@@ -49,7 +49,7 @@ public class OyuncuController : MonoBehaviour
         {
             velo.y = 0f;
         }
-        velo.y = yercekimi * Time.deltaTime;
+        velo.y += yercekimi * Time.deltaTime;
         control.Move(velo * Time.deltaTime);
     }
 
