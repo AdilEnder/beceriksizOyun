@@ -6,65 +6,62 @@ using UnityEngine;
 public class kapý : MonoBehaviour
 {
 
-    public GameObject door;
-    public GameObject TriggerDoor;
     public float distance;
-    public Animation anim;
-    public GameObject E;
+    public GameObject etouch;// degýskenler
+    public GameObject hinge;
+    public GameObject trýgger;
 
-    void Start()
-    {
-        anim = GetComponent<Animation>();
-    }
 
-    
+   
+
+
+
     void Update()
     {
-
-        distance = playerRay.thedistance;
-        
-
-
-        
-
-        
-
+     distance = playerRay.thedistance; // degýskene baglan scrýpt adý
     }
 
-    void OnMouseOver()
+    void OnMouseOver() // mouse ustundeyse
     {
 
-        if (distance < 2)
+        if (distance <= 2)
         {
-            E.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-
-                TriggerDoor.GetComponent<BoxCollider>().enabled = false;
-                anim.gameObject.GetComponent<Animation>().Play("sýkcemAnaný");
-
-
-            }
+           
+            etouch.SetActive(true);
+            
 
         }
         else
         {
-
-            E.SetActive(false);
+            
+            etouch.SetActive(false);
+            
 
         }
-
-    }
-    void OnMouseExit()
-    {
-        
-        if (distance < 2)
+        if (Input.GetKey(KeyCode.E)) 
         {
 
-            E.SetActive(false);
+            if (distance <= 2)
+            {
+
+                this.gameObject.GetComponent<BoxCollider>().enabled = false; // objenýn colýderýný yok eder
+                etouch.SetActive(false);
+                hinge.GetComponent<Animation>().Play("kapý"); // anýmasyon bok gýbý 
+                
+
+
+            }
+
 
         }
 
+
     }
+
+    void OnMouseExit()
+    {   
+        etouch.SetActive(false);
+    }
+
+
 }
